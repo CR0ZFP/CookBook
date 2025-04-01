@@ -10,8 +10,7 @@ namespace CookBook.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public double CaloriesPer100g { get; set; } = 
-
+        public double CaloriesPer100g { get; set; } 
         public ICollection<FoodIngredient> FoodIngredients { get; set; } = new List<FoodIngredient>();
     }
 }
