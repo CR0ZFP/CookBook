@@ -38,7 +38,24 @@ namespace CookBook.Data
                 .WithMany(y => y.FoodIngredients)
                 .HasForeignKey(x => x.IngredientId);
 
-           
+            modelBuilder.Entity<Ingredient>().HasData(
+             new Ingredient { Id = 1, Name = "Salt", CaloriesPer100g = 0 },
+             new Ingredient { Id = 2, Name = "Sugar", CaloriesPer100g = 400 },
+             new Ingredient { Id = 3, Name = "Chicken Breast", CaloriesPer100g = 165 },
+             new Ingredient { Id = 4, Name = "Pasta", CaloriesPer100g = 350 }
+         );
+
+            modelBuilder.Entity<Food>().HasData(
+                new Food { Id = 1, foodName = "Bolognese" },
+                new Food { Id = 2, foodName = "Fried Chicken" }
+            );
+
+            modelBuilder.Entity<FoodIngredient>().HasData(
+                new FoodIngredient { FoodId = 1, IngredientId = 4, Grams = 100 }, 
+                new FoodIngredient { FoodId = 1, IngredientId = 2, Grams = 10 },  
+                new FoodIngredient { FoodId = 2, IngredientId = 3, Grams = 150 }, 
+                new FoodIngredient { FoodId = 2, IngredientId = 1, Grams = 5 }    
+            );
         }
     }
 }
