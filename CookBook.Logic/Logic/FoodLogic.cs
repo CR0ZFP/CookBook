@@ -3,6 +3,7 @@ using CookBook.Data.Repositories;
 using CookBook.Entities;
 using CookBook.Entities.Dto;
 using CookBook.Logic.Dto;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace CookBook.Logic.Logic
@@ -18,9 +19,15 @@ namespace CookBook.Logic.Logic
             mapper = provider.Mapper;
         }
 
-        public IEnumerable<FoodViewDto> Read ()
+        public IEnumerable<FoodViewDto> Read()
         {
-            return repository.GetAll().Select(t =>mapper.Map<FoodViewDto>(t));
+            var foods = repository.GetContext()
+            .Foods
+            .Include(f => f.FoodIngredients)
+            .ThenInclude(fi => fi.Ingredient)
+            .ToList();
+
+            return foods.Select(food => mapper.Map<FoodViewDto>(food)).ToList();
         }
 
         public void Create (FoodCreateDto dto)
@@ -34,10 +41,13 @@ namespace CookBook.Logic.Logic
             repository.DeleteById(id);
         }
 
-        public void Update (string id)
+        public void Update (string id, FoodCreateDto dto)
         {
             var foodToUpdate = repository.FindById(id);
+            mapper.Map(dto, foodToUpdate);
             repository.Update(foodToUpdate);
         }
+
+        
     }
 }
