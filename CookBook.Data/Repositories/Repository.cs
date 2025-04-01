@@ -51,5 +51,10 @@ namespace CookBook.Data.Repositories
             ctx.Set<T>().Update(oldEntity);
             ctx.SaveChanges();
         }
+
+        public CookBookContext GetContext ()
+        {
+            return this.ctx;
+        }
     }
 }
