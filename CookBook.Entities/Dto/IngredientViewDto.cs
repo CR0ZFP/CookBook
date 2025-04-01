@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CookBook.Entities.Dto
 {
-    public class IngredientInFoodDto
+    public class IngredientViewDto
     {
+        public string Id { get; set; }
         public string Name { get; set; }
-        public double Grams { get; set; }
         public double CaloriesPer100g { get; set; }
     }
 }
