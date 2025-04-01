@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CookBook.Data
 {
-    class CookBookContext : IdentityDbContext
+    public class CookBookContext : IdentityDbContext
     {
         public DbSet<Food> Foods { get; set; }
         public DbSet<Ingredient> Ingedients { get; set; }
