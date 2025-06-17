@@ -17,7 +17,7 @@ namespace CookBook.Data
 
         public CookBookContext (DbContextOptions<CookBookContext> opt) : base (opt)
         {
-
+            Database.EnsureCreated ();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

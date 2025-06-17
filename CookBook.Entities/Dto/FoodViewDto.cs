@@ -8,9 +8,9 @@ namespace CookBook.Entities.Dto
 {
     public class FoodViewDto
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public double Calories { get; set; }
-        public List<IngredientInFoodDto> Ingredients { get; set; }
+        public string Id { get; set; } = "";
+        public string FoodName { get; set; } = "";
+        public double Calories { get; set; } = 0.0;
+        public List<IngredientInFoodDto> FoodIngredients { get; set; } = new();
     }
 }

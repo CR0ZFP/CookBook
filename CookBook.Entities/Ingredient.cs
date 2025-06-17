@@ -13,9 +13,9 @@ namespace CookBook.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
         [StringLength (250)]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public double CaloriesPer100g { get; set; } 
         public ICollection<FoodIngredient> FoodIngredients { get; set; } = new List<FoodIngredient>();
     }

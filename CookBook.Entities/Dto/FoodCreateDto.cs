@@ -8,7 +8,7 @@ namespace CookBook.Entities.Dto
 {
     public class FoodCreateDto
     {
-        public string Name { get; set; }
-        public List<FoodCreateIngredientDto> Ingredients { get; set; } = new();
+        public string FoodName { get; set; } = "";
+        public List<FoodCreateIngredientDto> FoodIngredients { get; set; } = new();
     }
 }

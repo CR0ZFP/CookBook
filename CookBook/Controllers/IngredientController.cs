@@ -22,7 +22,7 @@ namespace CookBook.Endpoint.Controllers
         }
 
         [HttpPost]
-        public void Post(IngredientInFoodDto dto)
+        public void Post(IngredientCreateDto dto)
         {
             this.logic.Create(dto);
         }

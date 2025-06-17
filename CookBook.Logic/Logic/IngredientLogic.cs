@@ -27,7 +27,7 @@ namespace CookBook.Logic.Logic
             return repository.GetAll().Select(t => mapper.Map<IngredientViewDto>(t));
         }
 
-        public void Create(IngredientInFoodDto dto)
+        public void Create(IngredientCreateDto dto)
         {
             var ingredient = mapper.Map<Ingredient>(dto);
             repository.Create(ingredient);

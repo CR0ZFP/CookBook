@@ -8,8 +8,8 @@ namespace CookBook.Entities.Dto
 {
     public class IngredientInFoodDto
     {
-        public string Name { get; set; }
-        public double Grams { get; set; }
-        public double CaloriesPer100g { get; set; }
+        public string Name { get; set; } = "";
+        public double Grams { get; set; } = 0.0;
+        public double CaloriesPer100g { get; set; } = 0.0;
     }
 }

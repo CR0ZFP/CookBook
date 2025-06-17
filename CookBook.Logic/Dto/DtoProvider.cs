@@ -26,6 +26,12 @@ namespace CookBook.Logic.Dto
                 cfg.CreateMap<IngredientInFoodDto, Ingredient>();
                 cfg.CreateMap<FoodCreateIngredientDto, Ingredient>();
                 cfg.CreateMap<Ingredient, IngredientViewDto>();
+                cfg.CreateMap<IngredientCreateDto, Ingredient>();
+
+                cfg.CreateMap<FoodIngredient, IngredientInFoodDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Ingredient.Name))
+                .ForMember(dest => dest.CaloriesPer100g, opt => opt.MapFrom(src => src.Ingredient.CaloriesPer100g))
+                .ForMember(dest => dest.Grams, opt => opt.MapFrom(src => src.Grams));
 
             }));
         }
